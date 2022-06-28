@@ -1,0 +1,153 @@
+<head>
+    <meta charset="utf-8" />
+    <title>Craft Center - My Profile</title>
+    <link rel="stylesheet" href="/stylesheets/profile-style.css"/>
+    <title>Craft Center - My Class</title>
+    <!-- Div Bar for OSU w/ logo -->
+  <div id="osuBar">
+    <img src="stylesheets/images/osuLogo.png" alt="OregonState" id="osuLogo">
+  </div>
+  <!-- Div bar for Craft Center name -->
+  <div id="blackBar">
+    <p id="barText">Craft Center Student View</p>
+    <p id="logout">
+      <a class="logout" href="/login"> Logout
+      </a>
+    </p>
+  </div>
+</head>
+
+<body>
+  <!-- Navigation Bar of Craft Center -->
+  <div class="navBar">
+    <nav>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/profile">MY PROFILE</a></li>
+        <li><a href="/my_classes">MY CLASSES</a></li>
+        <li><a href="/open_classes">CLASS REGISTRATION</a></li>
+        <li><a href="/membership">MEMBERSHIP REGISTRATION</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Add in a line breaker to break off the the nav from the main content of page -->
+  <br>
+
+  <!-- Add in the box to have student fill in information about them -->
+  <div class="profileBox">
+    <p id="profileTitle"> My Profile</p>
+    <p id="userInfo">User Information</p>
+    <hr class="solidLine">
+
+    <!-- Create a form -->
+    <form id="profileForm" class="profileForm" action="/profile" method="post">
+      <div class="fname">
+        <p id="fnameid">First Name:</p>
+        <input id="textFirst" type="text" name="firstName" value="{{profile.first_name}}" readonly>
+      </div>
+
+      <div class="lname">
+        <p id="lnameid">Last Name:</p>
+        <input id="textFirst" type="text" name="lastName" value="{{profile.last_name}}" readonly>
+      </div>
+
+      <br>
+
+      <div class="memberT">
+        <p id="membershipT">Membership:</p>
+        <input id="textFirst" type="text" name="memT" value="{{profile.membership}}" readonly>
+      </div>
+
+      <div class="Pronoun">
+        <label for="pronounChoice">Select a Pronoun: </label>
+        <select name="pronounChoice" id="pronounChoice">
+          <option value ="{{profile.pronouns}}">{{profile.pronouns}}</option>
+          <option value="he/him">He/Him</option>
+          <option value="she/her">She/Her</option>
+          <option value="they/them">They/Them</option>
+          <option value="ze/zir">Ze/Zir</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="onidID">
+        <p id="osuID">OSU ONID:</p>
+        <input id="textFirst" type="text" name="osuOnid" value="{{profile.OSU_ID}}" readonly>
+      </div>
+    <!--/form><!-->
+
+    <br>
+
+    <!-- Contact Form -->
+    <p id="contactInfo">Contact Information</p>
+    <hr class="solidLine">
+
+    <!--form class="contactForm" action="index.html" method="post"><!-->
+      <div class='ONIDemail'>
+        <p id="emailID">ONID Email:</p>
+        <input id="textFirst" type="text" name="onidEmail" value="{{profile.email}}" readonly>
+      </div>
+
+      <div class='altEmail'>
+        <p id='altContact'>Alternative Email:</p>
+        <input type="text" name='altEmails' value="{{profile.alt_email}}">
+      </div>
+
+      <p id="phoneID">Phone Number:</p>
+      <input type="text" name="phoneNum" value="{{profile.phone_num}}" >
+    </form>
+
+    <br><br>
+
+    <!-- Create a cancel and save button -->
+    <button id = "cancelButton" class = "cancelbutton" type="button">Cancel</button>
+    <button id = "saveButton" class = "savebutton" type="button" onclick="updateProfile()">Save</button>
+    <br>
+  </div>
+
+  <!-- Add in a line breaker to separate content -->
+  <br>
+</body>
+
+
+
+{{!-- <h2><a href='/'>Back to Home Page</a></h2>
+
+<h4><a href='/my_classes'>View my classes</a></h4>
+
+<h4><a href='/forms_status'>View my forms</a></h4>
+
+
+<h3>Hello {{first_name}}!:</h3>
+<table>
+    <thead> 
+        <th>User ID</th> 
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Pronouns</th>
+        <th>OSU ID</th>
+        <th>Email</th>
+        <th>Alternate Email</th>
+        <th>Phone Number</th>
+        <th>Membership Status</th>
+        <th>Registered Term</th>
+        <th>Current Fees</th>
+    </thead> 
+    <tbody>
+        <tr> 
+            <td>{{user_ID}}</td> 
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{pronouns}}</td>
+            <td>{{OSU_ID}}</td>
+            <td>{{email}}</td>
+            <td>{{alt_email}}</td>
+            <td>{{phone_num}}</td>
+            <td>{{membership}}</td>
+            <td>{{term}}</td>
+            <td>{{debt}}</td>
+        </tr> 
+
+    </tbody> 
+</table> --}}

@@ -1,0 +1,60 @@
+<h2><a href='/'>Back to Home Page</a></h2>
+
+
+<h3>Add new classes:</h3>
+<form id="addclass" action="/classes" method="post">
+    Category: <input type="text" name="category" required><br>
+    Title: <input type="text" name="section" required><br>
+    Instructor: <input type="text" name="instructor" required><br>
+    Term Offered: <input type="text" name="term" required><br>
+    Date Range: <input type="text" name="date" required><br>
+    Time: <input type="text" name="time" required><br>
+    Description: <input type="text" name="description" required><br>
+    Fee: <input type="number" name="fee" required><br>
+    Max Enrollment: <input type="number" name="max_enroll" required><br>
+    <input type="submit" value="Submit">
+ </form>
+<br/>
+
+<form id='search_classes_form' action='' method=''>
+<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    <label> Search classes for section starting with:</label>
+    <input id="search_classes" input type="text" name="search_classes" required>
+    <button type="button" id="searchClassesButton">Search</button>
+</form>
+
+
+<h3>Current Classes:</h3>
+<table>
+    <thead> 
+        <th>Class ID</th> 
+        <th>Category</th>
+        <th>Section</th>
+        <th>Instructor</th>
+        <th>Term</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Fee</th>
+        <th>Fee</th>
+        <th>Description</th>
+        <th>Delete Button</th>
+    </thead> 
+    <tbody>
+        {{#each classes}} 
+        <tr> 
+            <td>{{class_ID}}</td> 
+            <td>{{category}}</td> 
+            <td>{{section}}</td>
+            <td>{{instructor}}</td>
+            <td>{{term}}</td>
+            <td>{{date}}</td>
+            <td>{{time}}</td>
+            <td>${{fee}}</td>
+            <td>{{curr_enroll}}</td>
+            <td>{{max_enroll}}</td>
+            <td>{{description}}</td>
+            <td><button onclick="deleteClass({{class_ID}})">Delete</button></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table>

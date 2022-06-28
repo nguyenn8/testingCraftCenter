@@ -1,0 +1,47 @@
+<html>
+<h2><a href='/'>Back to Home Page</a></h2>
+
+<h3>Add new users:</h3>
+<form id="adduser" action="/users" method="post">
+    OSU ID: <input type="text" name="OSU_ID" required><br>
+    First Name: <input type="text" name="first_name" required><br>
+    Last Name: <input type="text" name="last_name" required><br>
+    Email: <input type="email" name="email" required><br>
+    Phone Number: <input type="number" name="phone_num" required><br>
+    Registered Term: <input type="text" name="term" required><br>
+    Member Status: <input type="text" name="membership" required><br>
+
+    <input type="submit" value="Submit" name="submit">
+ </form>
+<br/>
+
+<h3>Current Users:</h3>
+<table>
+    <thead> 
+        <th>User ID</th> 
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>OSU ID</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Membership Status</th>
+        <th>Registered Term</th>
+        <th>Delete Button</th>
+    </thead> 
+    <tbody>
+        {{#each users}} 
+        <tr> 
+            <td>{{user_ID}}</td> 
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{OSU_ID}}</td>
+            <td>{{email}}</td>
+            <td>{{phone_num}}</td>
+            <td>{{membership}}</td>
+            <td>{{term}}</td>
+            <td><button onclick="deleteUser({{user_ID}})">Delete</button></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+</html>
